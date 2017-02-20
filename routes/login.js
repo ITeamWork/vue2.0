@@ -9,8 +9,7 @@ router.get('/', function (req, res) {
      * {title:'登录页'}表示这个页面的title叫'登录页'，可以没有
      */
     res.render('login',{title:'登录页'});
-});
-router.post('/', function (req, res) {
+}).post('/', function (req, res) {
     var user = req.body;
     if(user.username == 'aaa' && user.password == 'bbb'){
         req.session.user = user;
