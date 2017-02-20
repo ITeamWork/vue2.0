@@ -1,2 +1,8 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+    {{#if username}}
+        <p>欢迎您,{{username}}</p>
+    {{else}}
+        <p>欢迎您,<a href="/login">点击登录</a></p>
+    {{/if}}
+
