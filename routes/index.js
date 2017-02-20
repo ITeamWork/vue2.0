@@ -1,13 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
+router.use(function (req, res, next) {
+  var user = req.session.user;
+  if(user){
+      res.locals.username = user.username;
+  }
+  next();
+});
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var user = req.session.user;
-  if(!user)
-    res.render('index', { title: 'Express' });
-  else
-    res.render('index', { title: 'Express','username':user.username });
+  res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
