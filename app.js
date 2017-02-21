@@ -11,6 +11,8 @@ var users = require('./routes/users');
 // 引入route文件夹下login.js模块(xj)
 var login = require('./routes/login');
 
+var register = require('./routes/register');
+
 var app = express();
 
 // view engine setup
@@ -36,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/login', login);//这里用前面引入login(xj)
+app.use('/register', register);
 
 
 // catch 404 and forward to error handler

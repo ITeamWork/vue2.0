@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+.title{
+  text-align:center;
+  margin-bottom: 30px;
+  font-weight:bold;
+}

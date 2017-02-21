@@ -1,8 +1,12 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+    <h1>{{title}}</h1>
+    <p>Welcome to {{title}}</p>
     {{#if username}}
         <p>欢迎您,{{username}}</p>
     {{else}}
-        <p>欢迎您,<a href="/login">点击登录</a></p>
+        {{#if rePassword}}
+        <p>恭喜您,注册成功,<a href="/login">点击登录</a></p>
+        {{else}}
+        <p><a href="/login">点击登录</a></p>
+        <p>没有账号?<a href="/register">前往注册</a></p>
+        {{/if}}
     {{/if}}
-
