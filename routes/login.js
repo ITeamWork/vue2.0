@@ -2,6 +2,8 @@
 var express = require('express');
 var router = express.Router();
 
+var dbUtil = require('../db/dbUtils');
+
 //2.路由
 router.get('/', function (req, res) {
     /**
@@ -11,6 +13,7 @@ router.get('/', function (req, res) {
     res.render('login',{title:'登录页'});
 }).post('/', function (req, res) {
     var user = req.body;
+    //dbUtil.dbUtil(user);
     if(user.username == 'aaa' && user.password == 'bbb'){
         req.session.user = user;
         res.redirect('/'); //重定向到首页

@@ -1,9 +1,9 @@
     <h1>{{title}}</h1>
     <p>Welcome to {{title}}</p>
-    {{#if username}}
-        <p>欢迎您,{{username}}</p>
+    {{#if user.username}}
+        <p>欢迎您,{{user.username}}</p>
     {{else}}
-        {{#if rePassword}}
+        {{#if user.rePassword}}
         <p>恭喜您,注册成功,<a href="/login">点击登录</a></p>
         {{else}}
         <p><a href="/login">点击登录</a></p>

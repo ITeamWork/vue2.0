@@ -4,7 +4,8 @@ var router = express.Router();
 router.use(function (req, res, next) {
   var user = req.session.user;
   if(user){
-      res.locals.username = user.username;
+      console.log(JSON.stringify(user));
+      res.locals.user = user;
   }
   next();
 });
