@@ -7,8 +7,8 @@ function conn(){
     return mysql.createConnection({
         host:'localhost',
         user:'root',
-        password:'',
-        database:''
+        password:'xiajing',
+        database:'spa'
     });
 };
 

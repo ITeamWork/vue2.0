@@ -1,0 +1,44 @@
+
+/**
+* reset css
+*/
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.title{
+  text-align:center;
+  margin-bottom: 30px;
+  font-weight:bold;
+}
+
+
+
+/**
+*.nav 导航
+*/
+.nav{
+  background: #337ab7;
+  padding: 0 50px;
+
+  li:last-child{
+    float: right;
+  }
+
+  >li>a:focus,>li>a:hover{
+    background:none;
+  }
+
+  li>a{
+    display: inline-block;
+    padding: 15px;
+    color: #fff;
+  }
+  .active{
+    background: red;
+  }
+}

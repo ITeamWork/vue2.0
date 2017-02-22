@@ -3,6 +3,9 @@ logs
 *.log
 npm-debug.log*
 
+.idea
+*.iml
+
 # Runtime data
 pids
 *.pid
@@ -37,4 +40,4 @@ jspm_packages
 .node_repl_history
 
 
-.idea
+

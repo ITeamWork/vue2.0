@@ -1,7 +1,13 @@
 
+//数据库名字
+CREATE DATABASE `spa` /*!40100 DEFAULT CHARACTER SET utf8 */
+
+
+//用户表
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户id',
   `username` varchar(20) NOT NULL COMMENT '用户名',
+  `mobile` varchar(11) NOT NULL DEFAULT '""' COMMENT '用户手机号',
   `password` varchar(50) DEFAULT NULL COMMENT '用户密码',
   `role` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '0:normal,1:verified user,2:prefessonal user',
   PRIMARY KEY (`id`)

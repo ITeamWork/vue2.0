@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 
 var dbUtil = require('../db/dbUtils');
+var dal = require('../db/login.js'); //引入login.js
 
 //2.路由
 router.get('/', function (req, res) {
@@ -13,13 +14,31 @@ router.get('/', function (req, res) {
     res.render('login',{title:'登录页'});
 }).post('/', function (req, res) {
     var user = req.body;
-    //dbUtil.dbUtil(user);
-    if(user.username == 'aaa' && user.password == 'bbb'){
-        req.session.user = user;
-        res.redirect('/'); //重定向到首页
-    }else{
-        res.render('login',{title:'登录页',errMsg:'用户名或密码错误'});
-    }
+
+    dal.login(user, function (result) {
+        if(result.length === 1){
+            req.session.user = user;
+            res.redirect('/'); //重定向到首页
+        }else{
+            res.render('login',{title:'登录页',errMsg:'用户名或密码错误'});
+        }
+    })
+
+
+    //if(user.username == 'aaa' && user.password == 'bbb'){
+    //    req.session.user = user;
+    //    res.redirect('/'); //重定向到首页
+    //}else{
+    //    res.render('login',{title:'登录页',errMsg:'用户名或密码错误'});
+    //}
+});
+
+
+//注销
+router.get('/logout', function (req, res) {
+    delete req.session.user;
+    delete res.locals.username;
+    res.redirect("/");
 });
 
 //3.导出这个router
