@@ -41,5 +41,12 @@ router.get('/logout', function (req, res) {
     res.redirect("/");
 });
 
+//忘记密码
+router.get('/forgotPwd',function(req,res){
+    res.render('forgotPwd',{title:'忘记密码'});
+});
+
+
+
 //3.导出这个router
 module.exports = router;

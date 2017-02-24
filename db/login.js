@@ -47,11 +47,27 @@ function isExistUser(obj,callback){
         }
         callback(result[0].count);
     })
-}
+};
+
+
+//function updatePwd(obj,callback){
+//    var sql ='update set users set  password = ? where id = ?';
+//    dbConn.conn().query(sql,[getSha(obj.password),obj.id], function (err, result) {
+//        if(err){
+//            console.log('updatePwd is err at ' + err);
+//        }
+//        callback(result[0].count);
+//    })
+//};
+
+
+
+
 
 //导出这些方法
 module.exports={
     login:login,
     isExistUser:isExistUser,
     register:register
+    //updatePwd:updatePwd
 };
