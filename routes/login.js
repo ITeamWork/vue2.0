@@ -44,6 +44,24 @@ router.get('/logout', function (req, res) {
 //忘记密码
 router.get('/forgotPwd',function(req,res){
     res.render('forgotPwd',{title:'忘记密码'});
+}).post('/forgotPwd',function (req, res) {
+    if(req.body.password !== req.body.rePassword){
+        return  res.render('forgotPwd',{title:'忘记密码',errMsg:'2次输入的密码不一致...'});
+    }
+    dal.isExistUser(req.body, function (user) {
+        if(user){
+            var obj={
+                id:user.id,
+                password:req.body.password
+            };
+            dal.updatePwd(obj, function (result) {
+                if(result.affectedRows === 1)
+                    res.redirect('/');
+            })
+        }else{
+            res.render('forgotPwd',{title:'忘记密码',errMsg:'该手机号不存在'});
+        }
+    })
 });
 
 

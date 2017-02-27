@@ -18,8 +18,8 @@ router.get('/', function (req, res) {
     /**
      * 数据库操作
      */
-    dal.isExistUser(user,function(count){
-        if(count > 0){
+    dal.isExistUser(user,function(result){
+        if(result){
             res.render('register',{title:'欢迎注册',errMsg:'该手机号已存在'});
         }else{
             dal.register(user, function (result) {
