@@ -17,7 +17,7 @@ router.get('/', function (req, res) {
 
     dal.login(user, function (result) {
         if(result.length === 1){
-            req.session.user = user;
+            req.session.user = result[0];
             res.redirect('/'); //重定向到首页
         }else{
             res.render('login',{title:'登录页',errMsg:'用户名或密码错误'});

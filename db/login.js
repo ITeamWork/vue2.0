@@ -20,8 +20,8 @@ function getSha(val){
  */
 function login(obj,callback){
 
-    var sql = 'select * from users where username=? and password = ?';
-    dbConn.conn().query(sql,[obj.username,getSha(obj.password)], function (err, result) {
+    var sql = 'select * from users where username=? or mobile=? and password = ?';
+    dbConn.conn().query(sql,[obj.username,obj.username,getSha(obj.password)], function (err, result) {
         if(err){
             console.log("login error at "+ err);
         }
