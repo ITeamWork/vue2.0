@@ -4,6 +4,22 @@
 
 
 
-exports.Index = function(req, res) {
-        res.send('respond with a resource');
-    };
+function Index(req, res) {
+    res.send('respond with a resource');
+};
+
+/**
+ * @param next -->中间件的传递
+ */
+function Login (req, res,next) {
+    if(!req.session.user){
+        return res.redirect('/login');
+    }
+    next();
+}
+
+
+module.exports={
+    Index:Index,
+    Login:Login
+}
