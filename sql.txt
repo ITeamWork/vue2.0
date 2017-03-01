@@ -12,3 +12,5 @@ CREATE TABLE `users` (
   `role` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '0:normal,1:verified user,2:prefessonal user',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8
+
+//test
