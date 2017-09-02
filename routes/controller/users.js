@@ -1,15 +1,11 @@
 /**
  * Created by Administrator on 2017/2/27.
  */
-
-
-
 function Index(req, res) {
     res.send('respond with a resource');
 };
-
 /**
- * @param next -->ÖÐ¼ä¼þµÄ´«µÝ
+ * @param next -->ä¸­é—´ä»¶çš„ä¼ é€’
  */
 function Login (req, res,next) {
     if(!req.session.user){
@@ -17,8 +13,6 @@ function Login (req, res,next) {
     }
     next();
 }
-
-
 module.exports={
     Index:Index,
     Login:Login
